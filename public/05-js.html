@@ -1,0 +1,17 @@
+<div id="root"></div>
+<script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+<script src="https://unpkg.com/babel-standalone@6.26.0/babel.js" crossorigin></script>
+<script type="text/babel">
+
+// RE RENDER - REACT ONLY UPDATE THE PART OF THE DOM THAT IS NECESSARY TO RE-RENDER
+
+const rootElement = document.getElementById('root');
+
+function tick(){
+    const time = new Date().toLocaleTimeString();
+    const element = <div>It is {time}</div>
+    ReactDOM.render(element, rootElement)
+}
+setInterval(tick,1000);
+</script>

@@ -1,0 +1,31 @@
+<div id="root"></div>
+<script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+<script src="https://unpkg.com/prop-types@15.6.0/prop-types.js" crossorigin></script>
+<script src="https://unpkg.com/babel-standalone@6.26.0/babel.js" crossorigin></script>
+<script type="text/babel">
+
+    class SayHello extends React.Component{
+        static propTypes = {
+            firstName: PropTypes.string,
+            lastName: PropTypes.string,
+        }
+
+        render(){
+            const {firstName, lastName} = this.props
+            return (
+                <div>
+                    Hello {firstName} {lastName}!
+                </div>
+            )
+        }
+    }
+
+
+
+    const element = (
+        <SayHello firstName={'Nome'} lastName={'Sobrenome'} />
+    )
+
+    ReactDOM.render(element, document.getElementById('root'))
+</script>
