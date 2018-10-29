@@ -1,0 +1,37 @@
+<div id="root"></div>
+<script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+<script src="https://unpkg.com/babel-standalone@6.26.0/babel.js" crossorigin></script>
+<script type="text/babel">
+// RE RENDER - REACT ONLY UPDATE THE PART OF THE DOM THAT IS NECESSARY TO RE-RENDER
+const element = (
+    <div>
+        <div
+         className="box box--small"
+         style={{paddingLeft: '20px'}}
+         >box</div>
+    </div>
+)
+// or....
+function Box(props){
+    return (
+        <div>
+            <div
+            className="box box--small"
+            style={{paddingLeft:20}}
+            {...props}
+            >box</div>
+        </div>
+    );
+}
+
+const element2 = (
+    <div>
+    <Box style={{backgroundColor:'lightblue'}}>
+    small box
+    </Box>
+    </div>
+)
+
+ReactDOM.render(element2, document.getElementById('root'))
+</script>

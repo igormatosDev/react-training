@@ -1,0 +1,43 @@
+<div id="root"></div>
+<script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+<script src="https://unpkg.com/babel-standalone@6.26.0/babel.js" crossorigin></script>
+<script type="text/babel">
+
+class Tilt extends React.Component{
+    componentDidMount() {
+        // If i want to use some external libraries, this will be called when
+        // component mount, so, I just have to use this.rootNode (or whatever
+        // node that I've sent to this function), and init my external library
+        // in this node.
+        console.log(this.rootNode)
+    }
+    render(){
+        return(
+            <div
+                ref={node => (this.rootNode = node)}
+                className="tilt-root"
+            >
+                <div className="tilt-child">
+                    <div {...this.props} />
+                </div>
+            </div>
+        )
+    }
+}
+
+const element = (
+    <div className="totally-centered">
+        <Tilt>
+            <div className="totally-centered">
+                vanilla-tilt.js
+            </div>
+        </Tilt>
+    </div>
+)
+
+ReactDOM.render(
+    element,
+    document.getElementById('root'),
+)
+</script>
