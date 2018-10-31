@@ -1,0 +1,39 @@
+<div id="root"></div>
+<script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+<script src="https://unpkg.com/babel-standalone@6.26.0/babel.js" crossorigin></script>
+<style>
+    input, select, textarea{
+    width:300px;
+}
+</style>
+
+<script type="text/babel">
+
+    class App extends React.Component{
+    //    ALWAYS USE THE KEY IN AN ELEMENT, BECAUSE IT IS RESPONSABLE FOR KEEP
+    //    ELEMENTS VINCULATED IF A RE-RENDER OCCURS
+
+        static allItems = [
+           {id: 'a', value: 'apple'},
+           {id: 'o', value: 'orange'},
+           {id: 'g', value: 'grape'},
+           {id: 'p', value: 'pear'},
+       ]
+
+       render(){
+           return (
+                <div>
+                    {App.allItems.map(item => (
+                        <div key={item.id} >{item.value}</div>
+                    ))}
+                </div>
+           )
+       }
+   }
+
+ReactDOM.render(
+    <App/>,
+    document.getElementById('root'),
+)
+</script>
